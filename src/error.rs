@@ -1,4 +1,4 @@
-// src/error.rs
+
 #[derive(Debug)]
 pub enum ServiceError {
     Validation(String),
