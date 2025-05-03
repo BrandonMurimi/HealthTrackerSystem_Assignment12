@@ -1,42 +1,45 @@
 
-use axum::{
-    extract::{Path, State, Json},
-    routing::{get, post, put, delete},
-    Router,
-    response::IntoResponse
-};
-use crate::{services::UserService, models::User};
+// src/api/users.rs
+use utoipa::ToSchema;
 
-pub fn routes(user_service: UserService<impl UserRepository>) -> Router {
-    Router::new()
-        .route("/", post(create_user))
-        .route("/", get(list_users))
-        .route("/:id", get(get_user))
-        .route("/:id", put(update_user))
-        .route("/:id", delete(delete_user))
-        .with_state(user_service)
+#[derive(serde::Deserialize, ToSchema)]
+pub struct CreateUserRequest {
+    /// User's email address
+    #[schema(example = "user@example.com")]
+    pub email: String,
+    
+    /// User's full name
+    #[schema(example = "John Doe")]
+    pub name: String,
 }
 
-// POST /api/users
-async fn create_user(
-    State(service): State<UserService<impl UserRepository>>,
-    Json(payload): Json<CreateUserRequest>,
-) -> Result<impl IntoResponse, ApiError> {
-    let user = service.register_user(payload.email, payload.name).await?;
-    Ok((StatusCode::CREATED, Json(user)))
-}
+#[utoipa::path(
+    post,
+    path = "/api/users",
+    request_body = CreateUserRequest,
+    responses(
+        (status = 201, description = "User created successfully", body = User),
+        (status = 400, description = "Validation error", 
+            body = ApiError,
+            example = json!({"error": "Invalid email format"})),
+        (status = 500, description = "Internal server error")
+    ),
+    tag = "Users"
+)]
+async fn create_user(/* ... */) { /* ... */ }
 
-// GET /api/users/:id
-async fn get_user(
-    Path(user_id): Path<String>,
-    State(service): State<UserService<impl UserRepository>>,
-) -> Result<Json<User>, ApiError> {
-    let user = service.get_user(&user_id).await?;
-    Ok(Json(user))
-}
-
-#[derive(serde::Deserialize)]
-struct CreateUserRequest {
-    email: String,
-    name: String,
-}
+#[utoipa::path(
+    get,
+    path = "/api/users/{id}",
+    params(
+        ("id" = String, Path, description = "User ID")
+    ),
+    responses(
+        (status = 200, description = "User details", body = User),
+        (status = 404, description = "User not found",
+            body = ApiError,
+            example = json!({"error": "User not found"}))
+    ),
+    tag = "Users"
+)]
+async fn get_user(/* ... */) { /* ... */ }
