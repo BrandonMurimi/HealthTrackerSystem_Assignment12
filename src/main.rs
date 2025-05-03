@@ -1,5 +1,4 @@
 
-// src/main.rs
 use axum::Router;
 use crate::{api::routes, repositories::{InMemoryUserRepository, InMemoryActivityRepository}};
 
