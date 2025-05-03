@@ -1,16 +1,29 @@
 
-pub mod users;
-pub mod activities;
+// src/api/mod.rs
+use utoipa::OpenApi;
 
-use axum::{Router, routing::get};
-use crate::services::{UserService, ActivityService};
+#[derive(OpenApi)]
+#[openapi(
+    paths(
+        users::create_user,
+        users::get_user,
+        activities::start_activity
+    ),
+    components(
+        schemas(User, CreateUserRequest, Activity, ApiError)
+    ),
+    tags(
+        (name = "Users", description = "User management"),
+        (name = "Activities", description = "Fitness activities")
+    )
+)]
+pub struct ApiDoc;
 
-pub fn routes(
-    user_service: UserService<impl UserRepository + Send + Sync + 'static>,
-    activity_service: ActivityService<impl ActivityRepository + Send + Sync + 'static>
-) -> Router {
+pub fn routes(/* ... */) -> Router {
+    let swagger = SwaggerUi::new("/docs")
+        .url("/api-docs/openapi.json", ApiDoc::openapi());
+    
     Router::new()
-        .nest("/api/users", users::routes(user_service))
-        .nest("/api/activities", activities::routes(activity_service))
-        .route("/api/health", get(|| async { "OK" }))
+        .merge(swagger)
+        // ... existing routes
 }
