@@ -1,5 +1,4 @@
 
-// src/api/mod.rs
 pub mod users;
 pub mod activities;
 
