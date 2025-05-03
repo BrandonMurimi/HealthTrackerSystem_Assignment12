@@ -1,5 +1,4 @@
 
-// src/services/activity_service.rs
 use crate::{
     models::{Activity, ActivityType},
     repositories::ActivityRepository,
