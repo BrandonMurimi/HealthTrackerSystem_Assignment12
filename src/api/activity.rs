@@ -1,4 +1,4 @@
-// src/api/activities.rs
+
 use axum::{
     extract::{Path, State, Json},
     routing::{post, delete},
