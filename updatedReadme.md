@@ -1,10 +1,10 @@
-# 🌦️ Assignment 13 – CI/CD Pipeline for Weather Tracking System
+🌦️ Assignment 13 – CI/CD Pipeline for Weather Tracking System
 
 This README outlines the CI/CD automation and protection rules implemented for the Weather Tracking System project using **GitHub Actions**.
 
 ---
 
-## ✅ Local Development
+ ✅ Local Development
 
 To build and test the project locally:
 
@@ -15,11 +15,11 @@ cargo test
 
 ---
 
-## 🚀 CI/CD Pipeline Overview
+ 🚀 CI/CD Pipeline Overview
 
 The CI/CD pipeline is configured in `.github/workflows/ci.yml`. It performs the following:
 
-### 🔁 Continuous Integration (CI)
+ 🔁 Continuous Integration (CI)
 - **Trigger**: On `push` and `pull_request` to `main`
 - **Steps**:
   - Checkout code
@@ -52,7 +52,7 @@ release-artifact:
 
 ---
 
-## 🔐 Branch Protection
+ 🔐 Branch Protection
 
 To ensure high code quality and production stability, the following rules are enforced on the `main` branch:
 
@@ -64,7 +64,7 @@ More details in [`PROTECTION.md`](./PROTECTION.md)
 
 ---
 
-## 🤝 Getting Started for Contributors
+ 🤝 Getting Started for Contributors
 
 ```bash
 git clone https://github.com/your-username/health-fitness-tracker.git
@@ -76,13 +76,13 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for contribution instructions.
 
 ---
 
-## 🔮 Roadmap Preview
+🔮 Roadmap Preview
 
 Check out the [`ROADMAP.md`](./ROADMAP.md) for upcoming features, DevOps improvements, and community collaboration opportunities.
 
 ---
 
-## 🌟 Contribution Highlights
+ 🌟 Contribution Highlights
 
 | Label              | Description                        |
 |-------------------|------------------------------------|
@@ -91,7 +91,7 @@ Check out the [`ROADMAP.md`](./ROADMAP.md) for upcoming features, DevOps improve
 
 ---
 
-## 📁 Key Files
+ 📁 Key Files
 
 ```
 .github/workflows/ci.yml        # CI/CD workflow
@@ -104,7 +104,7 @@ openapi.yaml                    # API docs
 
 ---
 
-## ✅ Example Screenshots (not included in markdown)
+✅ Example Screenshots (not included in markdown)
 
 - Passing test badge
 - Branch protection rule screen
