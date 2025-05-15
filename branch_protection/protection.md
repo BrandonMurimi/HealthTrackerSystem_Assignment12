@@ -1,8 +1,8 @@
-# 🔐 Branch Protection Rules – PROTECTION.md
+🔐 Branch Protection Rules – PROTECTION.md
 
 To maintain quality and prevent regressions in the Health Fitness Tracker System, we enforce branch protection rules on the `main` branch.
 
-## ✅ Enforced Rules
+ ✅ Enforced Rules
 
 | Rule                          | Description |
 |------------------------------|-------------|
@@ -10,14 +10,14 @@ To maintain quality and prevent regressions in the Health Fitness Tracker System
 | ✅ Require status checks to pass | GitHub Actions must verify the code builds and passes all tests. |
 | ✅ Block direct pushes         | No developer can push directly to `main`—all changes go through PRs. |
 
-## 🔍 Why It Matters
+🔍 Why It Matters
 
 - **Code Integrity**: Prevents unreviewed or broken code from reaching production.
 - **Collaboration**: Encourages team peer review and shared ownership.
 - **Quality Assurance**: CI runs catch issues before merge.
 - **Compliance**: Aligns with modern DevOps workflows and version control best practices.
 
-## ⚙️ How to Configure
+ ⚙️ How to Configure
 
 On GitHub:
 - Go to `Settings → Branches → Add Rule → main`
