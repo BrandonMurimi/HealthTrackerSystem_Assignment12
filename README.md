@@ -1,19 +1,19 @@
-# HealthTrackerSystem_Assignment12
+ HealthTrackerSystem_Assignment12
 
-# Fitness Tracker API 
-**Assignment 12: Service Layer & REST API Implementation**  
+Fitness Tracker API 
+Assignment 12: Service Layer & REST API Implementation**  
 ![Rust](https://img.shields.io/badge/Rust-1.70%2B-orange) 
 ![Axum](https://img.shields.io/badge/Axum-0.7-blue)
 ![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0-green)
 
-## 🚀 Quick Start
+ 🚀 Quick Start
 ```bash
-# Clone and run
+ Clone and run
 git clone https://github.com/your-username/fitness-tracker-rust.git
 cd fitness-tracker-rust
 cargo run
 
-# Test endpoints
+Test endpoints
 curl -X POST http://localhost:3000/api/users \
   -H "Content-Type: application/json" \
   -d '{"email":"test@fit.com","name":"Alice"}'
